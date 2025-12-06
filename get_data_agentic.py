@@ -10,7 +10,7 @@ import os
 # Ensure this model is pulled in your local Ollama instance (e.g., ollama pull llama3.1)
 OLLAMA_MODEL = "llama3.1" 
 CSV_FILE = "output/auction_data.csv"
-URL = "https://fleequid.com/en/auctions/dp/mercedes-benz-citaro-o-530-le-euro5-220kw-13057mt-6a817410-c004-454e-aead-9b3394770857" # Changed UUID to use a valid one from a previous execution if the provided one was old
+URL = "https://fleequid.com/en/auctions/dp/mercedes-benz-citaro-o-530-le-euro5-220kw-13057mt-6a817410-c004-454e-aead-9b3394770857" 
 
 def get_target_schema():
     """Reads the CSV to get the list of column names for structured extraction."""
@@ -20,9 +20,7 @@ def get_target_schema():
     if not os.path.exists(CSV_FILE):
         # Gracefully handle missing CSV by creating a minimal one if necessary
         print(f"⚠️ {CSV_FILE} not found. Creating empty file.")
-        # Assuming these two columns are always required and matching your original script's potential keys
-        # Note the leading space in ' Name' from your original schema
-        pd.DataFrame(columns=["Reference", " Name"]).to_csv(CSV_FILE, index=False)
+        pd.DataFrame(columns=["Reference", "Name"]).to_csv(CSV_FILE, index=False)
     
     df = pd.read_csv(CSV_FILE)
     return df.columns.tolist()
@@ -33,7 +31,6 @@ def get_static_data(page):
     Requires an active Playwright page object.
     """
     try:
-        # Selector for 'Reference' - typically a unique identifier displayed clearly
         reference = page.eval_on_selector(
                     "span.select-all", 
                     "element => element.textContent"
@@ -42,7 +39,6 @@ def get_static_data(page):
         reference = "N/A"
         
     try:
-        # Selector for 'Name' (H1 element)
         name = page.eval_on_selector(
                     "h1.text-highlighted", 
                     "element => element.textContent.trim()"
@@ -50,8 +46,7 @@ def get_static_data(page):
     except Exception:
         name = "N/A"
 
-    # Return as a dictionary for easy merging later
-    # The key is 'Name' here; it will be adjusted to ' Name' in the main block to match the CSV.
+    # Returns clean keys: {"Reference": X, "Name": Y}
     return {"Reference": reference, "Name": name}
 
 
@@ -62,7 +57,6 @@ def scrape_dynamic_content(url):
     """
     with sync_playwright() as p:
         print(f"🕵️  Agent launching browser for: {url}")
-        # Setting headless=True is faster and recommended for scraping
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
         page.goto(url)
@@ -72,7 +66,7 @@ def scrape_dynamic_content(url):
         plus_selector = 'span[class*="i-lucide:plus"]'
         
         print("🖱️  Expanding all collapsed sections...")
-        max_loops = 20 # Safety limit
+        max_loops = 20
         
         for _ in range(max_loops):
             pluses = page.locator(plus_selector)
@@ -83,16 +77,13 @@ def scrape_dynamic_content(url):
                 break
                 
             try:
-                # Clicks the first element found.
                 pluses.first.click(force=True, timeout=2000) 
-                time.sleep(0.5) # Wait for animation/DOM update
+                time.sleep(0.5) 
             except Exception as e:
-                # Often the element disappears on click, but this handles hard errors
                 print(f"   ⚠️ Could not click an expander, stopping expansion loop: {e}")
                 break
 
-        # 2. EXTRACT STATIC DATA using Playwright selectors while the page is open
-        # THIS IS THE KEY FIX: Extract data before closing the browser context.
+        # 2. EXTRACT STATIC DATA
         static_info = get_static_data(page) 
 
         # 3. ANNOTATE FALSE VALUES (Strikethrough)
@@ -109,10 +100,7 @@ def scrape_dynamic_content(url):
         html = page.content()
         browser.close()
         
-        # Now returns the HTML content and the extracted static data
         return html, static_info 
-
-# Removed the defunct parse_static_data(soup) function.
 
 def analyze_with_llm(html_content, columns):
     """Uses Ollama to map the cleaned HTML text to the specific CSV columns."""
@@ -127,7 +115,7 @@ def analyze_with_llm(html_content, columns):
     # Clean and limit text content for the LLM
     lines = [line.strip() for line in text_content.splitlines() if line.strip()]
     clean_text = "\n".join(lines)
-    clean_text = clean_text[:15000] # Safe limit for Llama3 context
+    clean_text = clean_text[:15000]
     
     print("🧠  Agent analyzing text with Ollama...")
     
@@ -140,7 +128,7 @@ def analyze_with_llm(html_content, columns):
     
     RULES:
     1. OUTPUT JSON ONLY. Do not use markdown (e.g., ```json) or any intro text.
-    2. USE ONLY THESE KEYS (fill as many as found, maintaining the original spacing): 
+    2. USE ONLY THESE KEYS (fill as many as found, maintaining the original structure): 
        {json.dumps(columns)}
     
     3. FALSE VALUES: 
@@ -164,7 +152,7 @@ def save_result(json_str, static_data):
         # Clean markdown wrappers if present
         json_str = json_str.replace("```json", "").replace("```", "").strip()
         
-        # Robust JSON parsing (in case the LLM is slightly messy)
+        # Robust JSON parsing
         try:
             data = json.loads(json_str)
         except json.JSONDecodeError:
@@ -185,9 +173,8 @@ def save_result(json_str, static_data):
         # Create DataFrame from the new data
         df_new = pd.DataFrame([data])
         
-        # Ensure only the columns from the CSV schema are used
-        df_final = pd.DataFrame(columns=schema_cols)
         # Use pd.concat for robust merging and column alignment
+        df_final = pd.DataFrame(columns=schema_cols)
         df_final = pd.concat([df_final, df_new], ignore_index=True)
         df_final = df_final[schema_cols]
         
@@ -201,19 +188,12 @@ def save_result(json_str, static_data):
 
 # --- Main Execution ---
 if __name__ == "__main__":
-    # Ensure Ollama is running (ollama serve) before executing
     
     # 1. Get the required column schema
     columns = get_target_schema()
     
     # 2. Scrape the dynamically loaded HTML and get static data
-    # The return is now (html, static_info)
     html, static_info = scrape_dynamic_content(URL) 
-    
-    # The helper function returns 'Name' (clean key); the CSV uses ' Name' (key with space).
-    # We must fix this discrepancy here before passing to save_result.
-    if 'Name' in static_info:
-        static_info[' Name'] = static_info.pop('Name')
     
     # 3. LLM Parse for all other fields
     llm_json = analyze_with_llm(html, columns)
