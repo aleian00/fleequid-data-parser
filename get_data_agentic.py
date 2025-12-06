@@ -53,7 +53,7 @@ def scrape_dynamic_content(url):
     try:
         with sync_playwright() as p:
             logger.info(f"Launching browser for: {url}")
-            browser = p.chromium.launch(headless=False)
+            browser = p.chromium.launch(headless=True)
                     # 2. specific context with a real User Agent
             context = browser.new_context(
                 user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -154,12 +154,12 @@ def analyze_with_llm(html_content, columns):
         RULES:
         1. OUTPUT JSON ONLY. Do not use markdown (e.g., ```json) or any intro text.
         2. USE ONLY THESE KEYS (fill as many as found, maintaining the original structure): 
-           {json.dumps(columns)}
-        
-        3. FALSE VALUES: 
+           {json.dumps(columns)}       
+        3. FALSE or TRUE VALUES: 
            - If a line has "[VALUE: FALSE]", map it to "False".
            - If a checkbox feature is listed without the tag, map it to "True".
            - If a line has the value "Absent"  or similar, map it to "False".
+           - Do never increment the values as False.1, False.2, etc. It must always be just "False" and "True".
         4. Do not process the found values; keep them as-is (e.g., do not convert "1,021,288 km" to "1021288").
         TEXT DATA:
         ---

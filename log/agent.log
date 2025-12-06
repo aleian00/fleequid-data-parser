@@ -789,3 +789,876 @@ From registration to the delivery of the vehicle, everything is clear
 2025-12-06 17:52:16,700 - INFO - LLM analysis completed.
 2025-12-06 17:52:16,716 - INFO - Data appended to output/auction_data.csv
 2025-12-06 17:52:16,717 - INFO - Agent completed.
+2025-12-06 17:55:40,225 - INFO - Agent starting...
+2025-12-06 17:55:40,229 - INFO - Schema loaded: ['Reference', 'Name', 'Firstregistration', 'Kilometers', 'Emissionstandard(exantipollution)', 'Type', 'Class', 'Version', 'Location', 'Vehiclecondition', 'TypeofUse', 'V.I.N.', 'Floor', 'Length', 'Width', 'Height', 'Inspectionexpirationdate', 'Documentnationality', 'Doors', 'Totalpassengercapacity', 'Seats', "Seatsincludingdriver'sseatfromregistrationcertificateS1", 'Standingplaces', 'StandingplacefromregistrationcertificateS2', 'Companionseats', 'Foldingseats', 'Wheelchairplaces', 'Wheelchairramp', 'Luggagecapacity', 'Pass-throughLuggageCompartment', 'Fuel', 'Enginebrand', 'Enginemodel', 'Engineposition', 'Displacement', 'Power', 'Axles', 'numberofwheels(singleordouble)', 'Tiresizeforaxle1', 'Tiresizeforaxle2', 'Sparewheel', 'Alloywheels', 'Passengersairconditioning', 'Heater', 'Preheater', 'Transmission type', 'Driverairconditioning', 'Cruisecontrol', 'Tachograph', 'ABS', 'ASR', 'Retarder', 'Breathalyzer', 'CCTV', 'Internalcameras', 'Externalcameras', 'Reversingcamera', 'Firealarmsystem', 'Destinationsigns', 'Destinationsignsbrand', 'Driverberth', 'DriverElectricsocket', 'Monitors', 'Wi-Fi', 'Microphone', 'CDplayer', 'DVDplayer', 'RadioUSBplayer', 'MP3', 'Kitchen', 'Coffeemachine', 'Refrigerator', 'Toilet', 'Operationalwindows', 'Curtains', 'Seatsmonitor', 'Seatsradio', 'SeatsUSBport', 'Passengerseatelectricsocket220V', 'Seatupholstery', 'Recliningseats', 'Extendableseats', 'Safetybelts', 'Coffeetables', 'Seatpocket', 'Handrest', 'Footrest', 'HatBox']
+2025-12-06 17:55:40,229 - DEBUG - Using selector: KqueueSelector
+2025-12-06 17:55:40,463 - INFO - Launching browser for: https://fleequid.com/en/auctions/dp/solaris-urbino-18-euro5-231kw-18m-0af2e7e7-3703-4485-8f75-4ea1a0016f5a
+2025-12-06 17:55:45,307 - DEBUG - Page Title: Bus Solaris Urbino 18-Euro5-231kw-18m SUU3412118BPN1380 - Fleequid
+2025-12-06 17:55:45,332 - DEBUG - page content length: 719611
+2025-12-06 17:55:45,332 - INFO - Staart getting static info...
+2025-12-06 17:55:45,358 - INFO - Static data extracted: Reference=ACT-000004374, Name=Solaris Urbino
+2025-12-06 17:55:45,358 - INFO - Static info retrieved.
+2025-12-06 17:55:45,358 - INFO - Expanding all collapsed sections...
+2025-12-06 17:55:45,362 - INFO - Cookie consent dialog found. Accepting cookies...
+2025-12-06 17:55:46,407 - INFO - Cookies accepted.
+2025-12-06 17:55:49,068 - INFO - All sections expanded.
+2025-12-06 17:55:49,248 - INFO - Content scraped successfully.
+2025-12-06 17:55:49,264 - INFO - Analyzing text with Ollama...
+2025-12-06 17:55:49,264 - DEBUG - Cleaned Text (truncated): City
+Solaris Urbino
+Reference:
+ACT-000004374
+First registration:
+03/2008
+1,021,288 km
+Euro 5
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 16h 4m
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 16h 4m
+Total Fleequid fees included:
+€6,775
+Additional services (optional)
+Nationalization
+*
+€2,300
+Registration
+*
+€1,300
+Delivery to destination
+*
+Temporary license plate
+*
+€1,300
+*
+Some services may not be available for this vehicle in your country.
+to verify.
+Contact one of our experts:
+Klejton Cikaj
++39 3805848700
+Vehicle specifications
+• Oil Pump: Leakage detected.
+• Diagnostic Fault Codes Displayed:
+• EBS System Fault (Electronic Braking System).
+• Brake Lining Worn.
+• Articulation Control System Failure.
+• Air Conditioning System Failure.
+• External Lighting Faults.
+• Self-Leveling System Malfunction: Vehicle tilts to the left side; each lifting attempt results in the vehicle dropping back down within a few seconds.
+The screen printing has been obscured for seller's privacy reasons, we inform you that the vehicle will be delivered with logo.
+If CoC documents are required for registration, obtaining them is the responsibility of the buyer.
+First registration:
+03/2008
+Kilometers:
+1,021,288 km
+Emission standard (ex antipollution):
+Euro 5
+Type:
+Autobus
+Class:
+City
+Version:
+18-Euro5-231kw-18m
+Location:
+województwo śląskie, Poland
+Vehicle condition:
+Running
+Type of Use:
+Third-party rental
+V.I.N.:
+SUU3412118BPN1380
+Floor:
+Low Floor
+Length:
+18.00 m
+Width:
+2.55 m
+Height:
+3.20 m
+Inspection expiration date:
+11/2025
+Document nationality:
+Poland
+Doors:
+2+2+2+2
+Total passenger capacity:
+171
+Seats:
+43
+Seats including driver's seat from registration certificate S1:
+44
+Standing places:
+127
+Standing place from registration certificate S2:
+127
+Companion seats:
+0
+Folding seats:
+0
+Wheelchair places:
+1
+Wheelchair ramp:
+Manual
+Luggage capacity:
+0 ㎥
+Pass-through Luggage Compartment [VALUE: FALSE]
+Gearbox:
+Working and regularly maintained
+Fuel:
+Diesel
+Engine brand:
+DAF
+Engine model:
+PR228C
+Engine position:
+Rear
+Displacement:
+9,186 cc
+Power:
+231 kW
+CNG tanks:
+1
+Transmission type:
+Automatic
+Transmission brand:
+Voith
+Axles:
+3
+number of wheels (single or double):
+10
+Tire size for axle 1:
+275/70 R22.5
+Tire size for axle 2:
+275/70 R22.5
+Tire size for axle 3:
+275/70 R22.5
+Alloy wheels
+Spare wheel [VALUE: FALSE]
+Driver air conditioning
+Heater
+Preheater
+Passengers air conditioning [VALUE: FALSE]
+Cruise control:
+No
+Tachograph:
+Absent
+ABS
+ASR
+Retarder
+Breathalyzer [VALUE: FALSE]
+Internal cameras
+CCTV [VALUE: FALSE]
+External cameras [VALUE: FALSE]
+Reversing camera [VALUE: FALSE]
+Fire alarm system [VALUE: FALSE]
+Destination signs
+Destination signs brand:
+SRG-3000P
+Driver berth [VALUE: FALSE]
+Driver Electric socket [VALUE: FALSE]
+Monitors:
+0
+Wi-Fi [VALUE: FALSE]
+Microphone [VALUE: FALSE]
+CD player [VALUE: FALSE]
+DVD player [VALUE: FALSE]
+Radio USB player [VALUE: FALSE]
+MP3 [VALUE: FALSE]
+Kitchen [VALUE: FALSE]
+Coffee machine [VALUE: FALSE]
+Refrigerator [VALUE: FALSE]
+Toilet [VALUE: FALSE]
+Operational windows:
+11
+Curtains [VALUE: FALSE]
+Seats monitor [VALUE: FALSE]
+Seats radio [VALUE: FALSE]
+Seats USB port [VALUE: FALSE]
+Passenger seat electric socket 220V [VALUE: FALSE]
+Seat upholstery:
+Fabric
+Reclining seats [VALUE: FALSE]
+Extendable seats [VALUE: FALSE]
+Hand rest
+Safety belts [VALUE: FALSE]
+Coffee tables [VALUE: FALSE]
+Seat pocket [VALUE: FALSE]
+Foot rest [VALUE: FALSE]
+Hat Box [VALUE: FALSE]
+Papers
+Vehicle registration document
+The Fleequid
+TrustReport
+:
+everything you need to choose your next vehicle.
+Every vehicle listed on Fleequid is inspected by one of our technicians directly at the seller's location.
+Following a standard procedure, we take photos and videos and compile the detailed report of the vehicle, then the full TrustReport is available on the listing page
+It's like being there in person, but with the convenience of staying at your desk.
+Discover Fleequid's TrustReport
+Vehicle details
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 16h 4m
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 16h 4m
+Total Fleequid fees included:
+€6,775
+Additional services (optional)
+Nationalization
+*
+€2,300
+Registration
+*
+€1,300
+Delivery to destination
+*
+Temporary license plate
+*
+€1,300
+*
+Some services may not be available for this vehicle in your country.
+to verify.
+Contact one of our experts:
+Klejton Cikaj
++39 3805848700
+4.2
+62 reviews
+Related vehicles
+City
+Mercedes-Benz O 530
+03/2007
+986,937 km
+Euro 4
+€6,000
+Ends in:
+3d 16h 44m
+Related vehicles in Buy Now
+City
+Irisbus Citelis PS09D1
+12/2008
+600,000 km
+Euro 5
+€6,900
+Available
+Why Fleequid?
+Easy deals
+A tech platform instead of negotiations with undecided interlocutors
+Fast processes
+Fleequid saves time and energy for your team
+A transparent support
+From registration to the delivery of the vehicle, everything is clear
+2025-12-06 17:55:49,265 - DEBUG - Target Columns: ['Reference', 'Name', 'Firstregistration', 'Kilometers', 'Emissionstandard(exantipollution)', 'Type', 'Class', 'Version', 'Location', 'Vehiclecondition', 'TypeofUse', 'V.I.N.', 'Floor', 'Length', 'Width', 'Height', 'Inspectionexpirationdate', 'Documentnationality', 'Doors', 'Totalpassengercapacity', 'Seats', "Seatsincludingdriver'sseatfromregistrationcertificateS1", 'Standingplaces', 'StandingplacefromregistrationcertificateS2', 'Companionseats', 'Foldingseats', 'Wheelchairplaces', 'Wheelchairramp', 'Luggagecapacity', 'Pass-throughLuggageCompartment', 'Fuel', 'Enginebrand', 'Enginemodel', 'Engineposition', 'Displacement', 'Power', 'Axles', 'numberofwheels(singleordouble)', 'Tiresizeforaxle1', 'Tiresizeforaxle2', 'Sparewheel', 'Alloywheels', 'Passengersairconditioning', 'Heater', 'Preheater', 'Transmission type', 'Driverairconditioning', 'Cruisecontrol', 'Tachograph', 'ABS', 'ASR', 'Retarder', 'Breathalyzer', 'CCTV', 'Internalcameras', 'Externalcameras', 'Reversingcamera', 'Firealarmsystem', 'Destinationsigns', 'Destinationsignsbrand', 'Driverberth', 'DriverElectricsocket', 'Monitors', 'Wi-Fi', 'Microphone', 'CDplayer', 'DVDplayer', 'RadioUSBplayer', 'MP3', 'Kitchen', 'Coffeemachine', 'Refrigerator', 'Toilet', 'Operationalwindows', 'Curtains', 'Seatsmonitor', 'Seatsradio', 'SeatsUSBport', 'Passengerseatelectricsocket220V', 'Seatupholstery', 'Recliningseats', 'Extendableseats', 'Safetybelts', 'Coffeetables', 'Seatpocket', 'Handrest', 'Footrest', 'HatBox']
+2025-12-06 17:55:49,265 - DEBUG - json.dumps(columns): ["Reference", "Name", "Firstregistration", "Kilometers", "Emissionstandard(exantipollution)", "Type", "Class", "Version", "Location", "Vehiclecondition", "TypeofUse", "V.I.N.", "Floor", "Length", "Width", "Height", "Inspectionexpirationdate", "Documentnationality", "Doors", "Totalpassengercapacity", "Seats", "Seatsincludingdriver'sseatfromregistrationcertificateS1", "Standingplaces", "StandingplacefromregistrationcertificateS2", "Companionseats", "Foldingseats", "Wheelchairplaces", "Wheelchairramp", "Luggagecapacity", "Pass-throughLuggageCompartment", "Fuel", "Enginebrand", "Enginemodel", "Engineposition", "Displacement", "Power", "Axles", "numberofwheels(singleordouble)", "Tiresizeforaxle1", "Tiresizeforaxle2", "Sparewheel", "Alloywheels", "Passengersairconditioning", "Heater", "Preheater", "Transmission type", "Driverairconditioning", "Cruisecontrol", "Tachograph", "ABS", "ASR", "Retarder", "Breathalyzer", "CCTV", "Internalcameras", "Externalcameras", "Reversingcamera", "Firealarmsystem", "Destinationsigns", "Destinationsignsbrand", "Driverberth", "DriverElectricsocket", "Monitors", "Wi-Fi", "Microphone", "CDplayer", "DVDplayer", "RadioUSBplayer", "MP3", "Kitchen", "Coffeemachine", "Refrigerator", "Toilet", "Operationalwindows", "Curtains", "Seatsmonitor", "Seatsradio", "SeatsUSBport", "Passengerseatelectricsocket220V", "Seatupholstery", "Recliningseats", "Extendableseats", "Safetybelts", "Coffeetables", "Seatpocket", "Handrest", "Footrest", "HatBox"]
+2025-12-06 17:55:49,267 - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-12-06 17:55:49,268 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x111d14440>
+2025-12-06 17:55:49,268 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-06 17:55:49,268 - DEBUG - send_request_headers.complete
+2025-12-06 17:55:49,268 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-06 17:55:49,268 - DEBUG - send_request_body.complete
+2025-12-06 17:55:49,268 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-06 17:56:13,195 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Sat, 06 Dec 2025 16:56:13 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-06 17:56:13,196 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-06 17:56:13,197 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-06 17:56:13,197 - DEBUG - receive_response_body.complete
+2025-12-06 17:56:13,197 - DEBUG - response_closed.started
+2025-12-06 17:56:13,197 - DEBUG - response_closed.complete
+2025-12-06 17:56:13,198 - INFO - LLM analysis completed.
+2025-12-06 17:56:13,214 - INFO - Data appended to output/auction_data.csv
+2025-12-06 17:56:13,214 - INFO - Agent completed.
+2025-12-06 17:56:54,859 - INFO - Agent starting...
+2025-12-06 17:56:54,863 - INFO - Schema loaded: ['Reference', 'Name', 'Firstregistration', 'Kilometers', 'Emissionstandard(exantipollution)', 'Type', 'Class', 'Version', 'Location', 'Vehiclecondition', 'TypeofUse', 'V.I.N.', 'Floor', 'Length', 'Width', 'Height', 'Inspectionexpirationdate', 'Documentnationality', 'Doors', 'Totalpassengercapacity', 'Seats', "Seatsincludingdriver'sseatfromregistrationcertificateS1", 'Standingplaces', 'StandingplacefromregistrationcertificateS2', 'Companionseats', 'Foldingseats', 'Wheelchairplaces', 'Wheelchairramp', 'Luggagecapacity', 'Pass-throughLuggageCompartment', 'Fuel', 'Enginebrand', 'Enginemodel', 'Engineposition', 'Displacement', 'Power', 'Axles', 'numberofwheels(singleordouble)', 'Tiresizeforaxle1', 'Tiresizeforaxle2', 'Sparewheel', 'Alloywheels', 'Passengersairconditioning', 'Heater', 'Preheater', 'Transmission type', 'Driverairconditioning', 'Cruisecontrol', 'Tachograph', 'ABS', 'ASR', 'Retarder', 'Breathalyzer', 'CCTV', 'Internalcameras', 'Externalcameras', 'Reversingcamera', 'Firealarmsystem', 'Destinationsigns', 'Destinationsignsbrand', 'Driverberth', 'DriverElectricsocket', 'Monitors', 'Wi-Fi', 'Microphone', 'CDplayer', 'DVDplayer', 'RadioUSBplayer', 'MP3', 'Kitchen', 'Coffeemachine', 'Refrigerator', 'Toilet', 'Operationalwindows', 'Curtains', 'Seatsmonitor', 'Seatsradio', 'SeatsUSBport', 'Passengerseatelectricsocket220V', 'Seatupholstery', 'Recliningseats', 'Extendableseats', 'Safetybelts', 'Coffeetables', 'Seatpocket', 'Handrest', 'Footrest', 'HatBoxACT-000004374', 'Solaris Urbino', '03/2008', '1,021,288 km', 'Euro 5', 'Autobus', 'City', '18-Euro5-231kw-18m', 'województwo śląskie, Poland', 'Running', 'Third-party rental', 'SUU3412118BPN1380', 'Low Floor', '18.00 m', '2.55 m', '3.20 m', '11/2025', 'Poland', '2+2+2+2', '171', '43', '44', '127', '127.1', '0', '0.1', '1', 'Manual', '0 ㎥', 'False', 'Diesel', 'DAF', 'PR228C', 'Rear', '9,186 cc', '231 kW', '3', '10', '275/70 R22.5', '275/70 R22.5.1', 'False.1', 'True', 'False.2', 'True.1', 'True.2', 'Unnamed: 132', 'True.3', 'No', 'False.3', 'True.4', 'True.5', 'True.6', 'False.4', 'False.5', 'True.7', 'False.6', 'False.7', 'False.8', 'Unnamed: 145', 'SRG-3000P', 'False.9', 'Unnamed: 148', '0.2', 'False.10', 'False.11', 'False.12', 'False.13', 'False.14', 'False.15', 'False.16', 'False.17', 'False.18', 'False.19', '11', 'False.20', 'False.21', 'False.22', 'False.23', 'Unnamed: 165', 'Fabric', 'False.24', 'False.25', 'False.26', 'False.27', 'False.28', 'True.8', 'False.29', 'False.30']
+2025-12-06 17:56:54,863 - DEBUG - Using selector: KqueueSelector
+2025-12-06 17:56:55,090 - INFO - Launching browser for: https://fleequid.com/en/auctions/dp/solaris-urbino-18-euro5-231kw-18m-0af2e7e7-3703-4485-8f75-4ea1a0016f5a
+2025-12-06 17:57:02,098 - DEBUG - Page Title: Bus Solaris Urbino 18-Euro5-231kw-18m SUU3412118BPN1380 - Fleequid
+2025-12-06 17:57:02,123 - DEBUG - page content length: 717716
+2025-12-06 17:57:02,123 - INFO - Staart getting static info...
+2025-12-06 17:57:02,148 - INFO - Static data extracted: Reference=ACT-000004374, Name=Solaris Urbino
+2025-12-06 17:57:02,148 - INFO - Static info retrieved.
+2025-12-06 17:57:02,148 - INFO - Expanding all collapsed sections...
+2025-12-06 17:57:02,151 - INFO - Cookie consent dialog found. Accepting cookies...
+2025-12-06 17:57:03,201 - INFO - Cookies accepted.
+2025-12-06 17:57:05,851 - INFO - All sections expanded.
+2025-12-06 17:57:05,912 - INFO - Content scraped successfully.
+2025-12-06 17:57:05,928 - INFO - Analyzing text with Ollama...
+2025-12-06 17:57:05,928 - DEBUG - Cleaned Text (truncated): City
+Solaris Urbino
+Reference:
+ACT-000004374
+First registration:
+03/2008
+1,021,288 km
+Euro 5
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 16h 2m
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 16h 2m
+Total Fleequid fees included:
+€6,775
+Additional services (optional)
+Nationalization
+*
+€2,300
+Registration
+*
+€1,300
+Delivery to destination
+*
+Temporary license plate
+*
+€1,300
+*
+Some services may not be available for this vehicle in your country.
+to verify.
+Contact one of our experts:
+Klejton Cikaj
++39 3805848700
+Vehicle specifications
+• Oil Pump: Leakage detected.
+• Diagnostic Fault Codes Displayed:
+• EBS System Fault (Electronic Braking System).
+• Brake Lining Worn.
+• Articulation Control System Failure.
+• Air Conditioning System Failure.
+• External Lighting Faults.
+• Self-Leveling System Malfunction: Vehicle tilts to the left side; each lifting attempt results in the vehicle dropping back down within a few seconds.
+The screen printing has been obscured for seller's privacy reasons, we inform you that the vehicle will be delivered with logo.
+If CoC documents are required for registration, obtaining them is the responsibility of the buyer.
+First registration:
+03/2008
+Kilometers:
+1,021,288 km
+Emission standard (ex antipollution):
+Euro 5
+Type:
+Autobus
+Class:
+City
+Version:
+18-Euro5-231kw-18m
+Location:
+województwo śląskie, Poland
+Vehicle condition:
+Running
+Type of Use:
+Third-party rental
+V.I.N.:
+SUU3412118BPN1380
+Floor:
+Low Floor
+Length:
+18.00 m
+Width:
+2.55 m
+Height:
+3.20 m
+Inspection expiration date:
+11/2025
+Document nationality:
+Poland
+Doors:
+2+2+2+2
+Total passenger capacity:
+171
+Seats:
+43
+Seats including driver's seat from registration certificate S1:
+44
+Standing places:
+127
+Standing place from registration certificate S2:
+127
+Companion seats:
+0
+Folding seats:
+0
+Wheelchair places:
+1
+Wheelchair ramp:
+Manual
+Luggage capacity:
+0 ㎥
+Pass-through Luggage Compartment [VALUE: FALSE]
+Gearbox:
+Working and regularly maintained
+Fuel:
+Diesel
+Engine brand:
+DAF
+Engine model:
+PR228C
+Engine position:
+Rear
+Displacement:
+9,186 cc
+Power:
+231 kW
+CNG tanks:
+1
+Transmission type:
+Automatic
+Transmission brand:
+Voith
+Axles:
+3
+number of wheels (single or double):
+10
+Tire size for axle 1:
+275/70 R22.5
+Tire size for axle 2:
+275/70 R22.5
+Tire size for axle 3:
+275/70 R22.5
+Alloy wheels
+Spare wheel [VALUE: FALSE]
+Driver air conditioning
+Heater
+Preheater
+Passengers air conditioning [VALUE: FALSE]
+Cruise control:
+No
+Tachograph:
+Absent
+ABS
+ASR
+Retarder
+Breathalyzer [VALUE: FALSE]
+Internal cameras
+CCTV [VALUE: FALSE]
+External cameras [VALUE: FALSE]
+Reversing camera [VALUE: FALSE]
+Fire alarm system [VALUE: FALSE]
+Destination signs
+Destination signs brand:
+SRG-3000P
+Driver berth [VALUE: FALSE]
+Driver Electric socket [VALUE: FALSE]
+Monitors:
+0
+Wi-Fi [VALUE: FALSE]
+Microphone [VALUE: FALSE]
+CD player [VALUE: FALSE]
+DVD player [VALUE: FALSE]
+Radio USB player [VALUE: FALSE]
+MP3 [VALUE: FALSE]
+Kitchen [VALUE: FALSE]
+Coffee machine [VALUE: FALSE]
+Refrigerator [VALUE: FALSE]
+Toilet [VALUE: FALSE]
+Operational windows:
+11
+Curtains [VALUE: FALSE]
+Seats monitor [VALUE: FALSE]
+Seats radio [VALUE: FALSE]
+Seats USB port [VALUE: FALSE]
+Passenger seat electric socket 220V [VALUE: FALSE]
+Seat upholstery:
+Fabric
+Reclining seats [VALUE: FALSE]
+Extendable seats [VALUE: FALSE]
+Hand rest
+Safety belts [VALUE: FALSE]
+Coffee tables [VALUE: FALSE]
+Seat pocket [VALUE: FALSE]
+Foot rest [VALUE: FALSE]
+Hat Box [VALUE: FALSE]
+Papers
+Vehicle registration document
+The Fleequid
+TrustReport
+:
+everything you need to choose your next vehicle.
+Every vehicle listed on Fleequid is inspected by one of our technicians directly at the seller's location.
+Following a standard procedure, we take photos and videos and compile the detailed report of the vehicle, then the full TrustReport is available on the listing page
+It's like being there in person, but with the convenience of staying at your desk.
+Discover Fleequid's TrustReport
+Vehicle details
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 16h 2m
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 16h 2m
+Total Fleequid fees included:
+€6,775
+Additional services (optional)
+Nationalization
+*
+€2,300
+Registration
+*
+€1,300
+Delivery to destination
+*
+Temporary license plate
+*
+€1,300
+*
+Some services may not be available for this vehicle in your country.
+to verify.
+Contact one of our experts:
+Klejton Cikaj
++39 3805848700
+4.2
+62 reviews
+Related vehicles
+City
+Mercedes-Benz O 530
+03/2007
+986,937 km
+Euro 4
+€6,000
+Ends in:
+3d 16h 42m
+Related vehicles in Buy Now
+City
+Irisbus Citelis PS09D1
+12/2008
+600,000 km
+Euro 5
+€6,900
+Available
+Why Fleequid?
+Easy deals
+A tech platform instead of negotiations with undecided interlocutors
+Fast processes
+Fleequid saves time and energy for your team
+A transparent support
+From registration to the delivery of the vehicle, everything is clear
+2025-12-06 17:57:05,929 - DEBUG - Target Columns: ['Reference', 'Name', 'Firstregistration', 'Kilometers', 'Emissionstandard(exantipollution)', 'Type', 'Class', 'Version', 'Location', 'Vehiclecondition', 'TypeofUse', 'V.I.N.', 'Floor', 'Length', 'Width', 'Height', 'Inspectionexpirationdate', 'Documentnationality', 'Doors', 'Totalpassengercapacity', 'Seats', "Seatsincludingdriver'sseatfromregistrationcertificateS1", 'Standingplaces', 'StandingplacefromregistrationcertificateS2', 'Companionseats', 'Foldingseats', 'Wheelchairplaces', 'Wheelchairramp', 'Luggagecapacity', 'Pass-throughLuggageCompartment', 'Fuel', 'Enginebrand', 'Enginemodel', 'Engineposition', 'Displacement', 'Power', 'Axles', 'numberofwheels(singleordouble)', 'Tiresizeforaxle1', 'Tiresizeforaxle2', 'Sparewheel', 'Alloywheels', 'Passengersairconditioning', 'Heater', 'Preheater', 'Transmission type', 'Driverairconditioning', 'Cruisecontrol', 'Tachograph', 'ABS', 'ASR', 'Retarder', 'Breathalyzer', 'CCTV', 'Internalcameras', 'Externalcameras', 'Reversingcamera', 'Firealarmsystem', 'Destinationsigns', 'Destinationsignsbrand', 'Driverberth', 'DriverElectricsocket', 'Monitors', 'Wi-Fi', 'Microphone', 'CDplayer', 'DVDplayer', 'RadioUSBplayer', 'MP3', 'Kitchen', 'Coffeemachine', 'Refrigerator', 'Toilet', 'Operationalwindows', 'Curtains', 'Seatsmonitor', 'Seatsradio', 'SeatsUSBport', 'Passengerseatelectricsocket220V', 'Seatupholstery', 'Recliningseats', 'Extendableseats', 'Safetybelts', 'Coffeetables', 'Seatpocket', 'Handrest', 'Footrest', 'HatBoxACT-000004374', 'Solaris Urbino', '03/2008', '1,021,288 km', 'Euro 5', 'Autobus', 'City', '18-Euro5-231kw-18m', 'województwo śląskie, Poland', 'Running', 'Third-party rental', 'SUU3412118BPN1380', 'Low Floor', '18.00 m', '2.55 m', '3.20 m', '11/2025', 'Poland', '2+2+2+2', '171', '43', '44', '127', '127.1', '0', '0.1', '1', 'Manual', '0 ㎥', 'False', 'Diesel', 'DAF', 'PR228C', 'Rear', '9,186 cc', '231 kW', '3', '10', '275/70 R22.5', '275/70 R22.5.1', 'False.1', 'True', 'False.2', 'True.1', 'True.2', 'Unnamed: 132', 'True.3', 'No', 'False.3', 'True.4', 'True.5', 'True.6', 'False.4', 'False.5', 'True.7', 'False.6', 'False.7', 'False.8', 'Unnamed: 145', 'SRG-3000P', 'False.9', 'Unnamed: 148', '0.2', 'False.10', 'False.11', 'False.12', 'False.13', 'False.14', 'False.15', 'False.16', 'False.17', 'False.18', 'False.19', '11', 'False.20', 'False.21', 'False.22', 'False.23', 'Unnamed: 165', 'Fabric', 'False.24', 'False.25', 'False.26', 'False.27', 'False.28', 'True.8', 'False.29', 'False.30']
+2025-12-06 17:57:05,929 - DEBUG - json.dumps(columns): ["Reference", "Name", "Firstregistration", "Kilometers", "Emissionstandard(exantipollution)", "Type", "Class", "Version", "Location", "Vehiclecondition", "TypeofUse", "V.I.N.", "Floor", "Length", "Width", "Height", "Inspectionexpirationdate", "Documentnationality", "Doors", "Totalpassengercapacity", "Seats", "Seatsincludingdriver'sseatfromregistrationcertificateS1", "Standingplaces", "StandingplacefromregistrationcertificateS2", "Companionseats", "Foldingseats", "Wheelchairplaces", "Wheelchairramp", "Luggagecapacity", "Pass-throughLuggageCompartment", "Fuel", "Enginebrand", "Enginemodel", "Engineposition", "Displacement", "Power", "Axles", "numberofwheels(singleordouble)", "Tiresizeforaxle1", "Tiresizeforaxle2", "Sparewheel", "Alloywheels", "Passengersairconditioning", "Heater", "Preheater", "Transmission type", "Driverairconditioning", "Cruisecontrol", "Tachograph", "ABS", "ASR", "Retarder", "Breathalyzer", "CCTV", "Internalcameras", "Externalcameras", "Reversingcamera", "Firealarmsystem", "Destinationsigns", "Destinationsignsbrand", "Driverberth", "DriverElectricsocket", "Monitors", "Wi-Fi", "Microphone", "CDplayer", "DVDplayer", "RadioUSBplayer", "MP3", "Kitchen", "Coffeemachine", "Refrigerator", "Toilet", "Operationalwindows", "Curtains", "Seatsmonitor", "Seatsradio", "SeatsUSBport", "Passengerseatelectricsocket220V", "Seatupholstery", "Recliningseats", "Extendableseats", "Safetybelts", "Coffeetables", "Seatpocket", "Handrest", "Footrest", "HatBoxACT-000004374", "Solaris Urbino", "03/2008", "1,021,288 km", "Euro 5", "Autobus", "City", "18-Euro5-231kw-18m", "wojew\u00f3dztwo \u015bl\u0105skie, Poland", "Running", "Third-party rental", "SUU3412118BPN1380", "Low Floor", "18.00 m", "2.55 m", "3.20 m", "11/2025", "Poland", "2+2+2+2", "171", "43", "44", "127", "127.1", "0", "0.1", "1", "Manual", "0 \u33a5", "False", "Diesel", "DAF", "PR228C", "Rear", "9,186 cc", "231 kW", "3", "10", "275/70 R22.5", "275/70 R22.5.1", "False.1", "True", "False.2", "True.1", "True.2", "Unnamed: 132", "True.3", "No", "False.3", "True.4", "True.5", "True.6", "False.4", "False.5", "True.7", "False.6", "False.7", "False.8", "Unnamed: 145", "SRG-3000P", "False.9", "Unnamed: 148", "0.2", "False.10", "False.11", "False.12", "False.13", "False.14", "False.15", "False.16", "False.17", "False.18", "False.19", "11", "False.20", "False.21", "False.22", "False.23", "Unnamed: 165", "Fabric", "False.24", "False.25", "False.26", "False.27", "False.28", "True.8", "False.29", "False.30"]
+2025-12-06 17:57:05,930 - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-12-06 17:57:05,931 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1151206e0>
+2025-12-06 17:57:05,931 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-06 17:57:05,931 - DEBUG - send_request_headers.complete
+2025-12-06 17:57:05,931 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-06 17:57:05,931 - DEBUG - send_request_body.complete
+2025-12-06 17:57:05,931 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-06 17:57:31,768 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Sat, 06 Dec 2025 16:57:31 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-06 17:57:31,768 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-06 17:57:31,768 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-06 17:57:31,768 - DEBUG - receive_response_body.complete
+2025-12-06 17:57:31,769 - DEBUG - response_closed.started
+2025-12-06 17:57:31,769 - DEBUG - response_closed.complete
+2025-12-06 17:57:31,769 - INFO - LLM analysis completed.
+2025-12-06 17:57:31,779 - INFO - Data appended to output/auction_data.csv
+2025-12-06 17:57:31,780 - INFO - Agent completed.
+2025-12-06 18:03:42,118 - INFO - Agent starting...
+2025-12-06 18:03:42,121 - INFO - Schema loaded: ['Reference', 'Name', 'Firstregistration', 'Kilometers', 'Emissionstandard(exantipollution)', 'Type', 'Class', 'Version', 'Location', 'Vehiclecondition', 'TypeofUse', 'V.I.N.', 'Floor', 'Length', 'Width', 'Height', 'Inspectionexpirationdate', 'Documentnationality', 'Doors', 'Totalpassengercapacity', 'Seats', "Seatsincludingdriver'sseatfromregistrationcertificateS1", 'Standingplaces', 'StandingplacefromregistrationcertificateS2', 'Companionseats', 'Foldingseats', 'Wheelchairplaces', 'Wheelchairramp', 'Luggagecapacity', 'Pass-throughLuggageCompartment', 'Fuel', 'Enginebrand', 'Enginemodel', 'Engineposition', 'Displacement', 'Power', 'Axles', 'numberofwheels(singleordouble)', 'Tiresizeforaxle1', 'Tiresizeforaxle2', 'Sparewheel', 'Alloywheels', 'Passengersairconditioning', 'Heater', 'Preheater', 'Transmission type', 'Driverairconditioning', 'Cruisecontrol', 'Tachograph', 'ABS', 'ASR', 'Retarder', 'Breathalyzer', 'CCTV', 'Internalcameras', 'Externalcameras', 'Reversingcamera', 'Firealarmsystem', 'Destinationsigns', 'Destinationsignsbrand', 'Driverberth', 'DriverElectricsocket', 'Monitors', 'Wi-Fi', 'Microphone', 'CDplayer', 'DVDplayer', 'RadioUSBplayer', 'MP3', 'Kitchen', 'Coffeemachine', 'Refrigerator', 'Toilet', 'Operationalwindows', 'Curtains', 'Seatsmonitor', 'Seatsradio', 'SeatsUSBport', 'Passengerseatelectricsocket220V', 'Seatupholstery', 'Recliningseats', 'Extendableseats', 'Safetybelts', 'Coffeetables', 'Seatpocket', 'Handrest', 'Footrest', 'HatBox']
+2025-12-06 18:03:42,121 - DEBUG - Using selector: KqueueSelector
+2025-12-06 18:03:42,349 - INFO - Launching browser for: https://fleequid.com/en/auctions/dp/solaris-urbino-18-euro5-231kw-18m-0af2e7e7-3703-4485-8f75-4ea1a0016f5a
+2025-12-06 18:03:46,374 - DEBUG - Page Title: Bus Solaris Urbino 18-Euro5-231kw-18m SUU3412118BPN1380 - Fleequid
+2025-12-06 18:03:46,397 - DEBUG - page content length: 720393
+2025-12-06 18:03:46,397 - INFO - Staart getting static info...
+2025-12-06 18:03:46,425 - INFO - Static data extracted: Reference=ACT-000004374, Name=Solaris Urbino
+2025-12-06 18:03:46,426 - INFO - Static info retrieved.
+2025-12-06 18:03:46,426 - INFO - Expanding all collapsed sections...
+2025-12-06 18:03:46,429 - INFO - Cookie consent dialog found. Accepting cookies...
+2025-12-06 18:03:47,471 - INFO - Cookies accepted.
+2025-12-06 18:03:50,094 - INFO - All sections expanded.
+2025-12-06 18:03:50,144 - INFO - Content scraped successfully.
+2025-12-06 18:03:50,160 - INFO - Analyzing text with Ollama...
+2025-12-06 18:03:50,160 - DEBUG - Cleaned Text (truncated): City
+Solaris Urbino
+Reference:
+ACT-000004374
+First registration:
+03/2008
+1,021,288 km
+Euro 5
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 15h 56m
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 15h 56m
+Total Fleequid fees included:
+€6,775
+Additional services (optional)
+Nationalization
+*
+€2,300
+Registration
+*
+€1,300
+Delivery to destination
+*
+Temporary license plate
+*
+€1,300
+*
+Some services may not be available for this vehicle in your country.
+to verify.
+Contact one of our experts:
+Oliwier Loba
++39 3207879488
+Vehicle specifications
+• Oil Pump: Leakage detected.
+• Diagnostic Fault Codes Displayed:
+• EBS System Fault (Electronic Braking System).
+• Brake Lining Worn.
+• Articulation Control System Failure.
+• Air Conditioning System Failure.
+• External Lighting Faults.
+• Self-Leveling System Malfunction: Vehicle tilts to the left side; each lifting attempt results in the vehicle dropping back down within a few seconds.
+The screen printing has been obscured for seller's privacy reasons, we inform you that the vehicle will be delivered with logo.
+If CoC documents are required for registration, obtaining them is the responsibility of the buyer.
+First registration:
+03/2008
+Kilometers:
+1,021,288 km
+Emission standard (ex antipollution):
+Euro 5
+Type:
+Autobus
+Class:
+City
+Version:
+18-Euro5-231kw-18m
+Location:
+województwo śląskie, Poland
+Vehicle condition:
+Running
+Type of Use:
+Third-party rental
+V.I.N.:
+SUU3412118BPN1380
+Floor:
+Low Floor
+Length:
+18.00 m
+Width:
+2.55 m
+Height:
+3.20 m
+Inspection expiration date:
+11/2025
+Document nationality:
+Poland
+Doors:
+2+2+2+2
+Total passenger capacity:
+171
+Seats:
+43
+Seats including driver's seat from registration certificate S1:
+44
+Standing places:
+127
+Standing place from registration certificate S2:
+127
+Companion seats:
+0
+Folding seats:
+0
+Wheelchair places:
+1
+Wheelchair ramp:
+Manual
+Luggage capacity:
+0 ㎥
+Pass-through Luggage Compartment [VALUE: FALSE]
+Gearbox:
+Working and regularly maintained
+Fuel:
+Diesel
+Engine brand:
+DAF
+Engine model:
+PR228C
+Engine position:
+Rear
+Displacement:
+9,186 cc
+Power:
+231 kW
+CNG tanks:
+1
+Transmission type:
+Automatic
+Transmission brand:
+Voith
+Axles:
+3
+number of wheels (single or double):
+10
+Tire size for axle 1:
+275/70 R22.5
+Tire size for axle 2:
+275/70 R22.5
+Tire size for axle 3:
+275/70 R22.5
+Alloy wheels
+Spare wheel [VALUE: FALSE]
+Driver air conditioning
+Heater
+Preheater
+Passengers air conditioning [VALUE: FALSE]
+Cruise control:
+No
+Tachograph:
+Absent
+ABS
+ASR
+Retarder
+Breathalyzer [VALUE: FALSE]
+Internal cameras
+CCTV [VALUE: FALSE]
+External cameras [VALUE: FALSE]
+Reversing camera [VALUE: FALSE]
+Fire alarm system [VALUE: FALSE]
+Destination signs
+Destination signs brand:
+SRG-3000P
+Driver berth [VALUE: FALSE]
+Driver Electric socket [VALUE: FALSE]
+Monitors:
+0
+Wi-Fi [VALUE: FALSE]
+Microphone [VALUE: FALSE]
+CD player [VALUE: FALSE]
+DVD player [VALUE: FALSE]
+Radio USB player [VALUE: FALSE]
+MP3 [VALUE: FALSE]
+Kitchen [VALUE: FALSE]
+Coffee machine [VALUE: FALSE]
+Refrigerator [VALUE: FALSE]
+Toilet [VALUE: FALSE]
+Operational windows:
+11
+Curtains [VALUE: FALSE]
+Seats monitor [VALUE: FALSE]
+Seats radio [VALUE: FALSE]
+Seats USB port [VALUE: FALSE]
+Passenger seat electric socket 220V [VALUE: FALSE]
+Seat upholstery:
+Fabric
+Reclining seats [VALUE: FALSE]
+Extendable seats [VALUE: FALSE]
+Hand rest
+Safety belts [VALUE: FALSE]
+Coffee tables [VALUE: FALSE]
+Seat pocket [VALUE: FALSE]
+Foot rest [VALUE: FALSE]
+Hat Box [VALUE: FALSE]
+Papers
+Vehicle registration document
+The Fleequid
+TrustReport
+:
+everything you need to choose your next vehicle.
+Every vehicle listed on Fleequid is inspected by one of our technicians directly at the seller's location.
+Following a standard procedure, we take photos and videos and compile the detailed report of the vehicle, then the full TrustReport is available on the listing page
+It's like being there in person, but with the convenience of staying at your desk.
+Discover Fleequid's TrustReport
+Vehicle details
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 15h 56m
+Current
+€6,000
+Total Fleequid fees included:
+€6,775
+Ends in:
+1d 15h 56m
+Total Fleequid fees included:
+€6,775
+Additional services (optional)
+Nationalization
+*
+€2,300
+Registration
+*
+€1,300
+Delivery to destination
+*
+Temporary license plate
+*
+€1,300
+*
+Some services may not be available for this vehicle in your country.
+to verify.
+Contact one of our experts:
+Oliwier Loba
++39 3207879488
+4.2
+62 reviews
+Related vehicles
+City
+Mercedes-Benz O 530
+03/2007
+986,937 km
+Euro 4
+€6,000
+Ends in:
+3d 16h 36m
+Related vehicles in Buy Now
+City
+Irisbus Citelis PS09D1
+12/2008
+600,000 km
+Euro 5
+€6,900
+Available
+Why Fleequid?
+Easy deals
+A tech platform instead of negotiations with undecided interlocutors
+Fast processes
+Fleequid saves time and energy for your team
+A transparent support
+From registration to the delivery of the vehicle, everything is clear
+2025-12-06 18:03:50,161 - DEBUG - Target Columns: ['Reference', 'Name', 'Firstregistration', 'Kilometers', 'Emissionstandard(exantipollution)', 'Type', 'Class', 'Version', 'Location', 'Vehiclecondition', 'TypeofUse', 'V.I.N.', 'Floor', 'Length', 'Width', 'Height', 'Inspectionexpirationdate', 'Documentnationality', 'Doors', 'Totalpassengercapacity', 'Seats', "Seatsincludingdriver'sseatfromregistrationcertificateS1", 'Standingplaces', 'StandingplacefromregistrationcertificateS2', 'Companionseats', 'Foldingseats', 'Wheelchairplaces', 'Wheelchairramp', 'Luggagecapacity', 'Pass-throughLuggageCompartment', 'Fuel', 'Enginebrand', 'Enginemodel', 'Engineposition', 'Displacement', 'Power', 'Axles', 'numberofwheels(singleordouble)', 'Tiresizeforaxle1', 'Tiresizeforaxle2', 'Sparewheel', 'Alloywheels', 'Passengersairconditioning', 'Heater', 'Preheater', 'Transmission type', 'Driverairconditioning', 'Cruisecontrol', 'Tachograph', 'ABS', 'ASR', 'Retarder', 'Breathalyzer', 'CCTV', 'Internalcameras', 'Externalcameras', 'Reversingcamera', 'Firealarmsystem', 'Destinationsigns', 'Destinationsignsbrand', 'Driverberth', 'DriverElectricsocket', 'Monitors', 'Wi-Fi', 'Microphone', 'CDplayer', 'DVDplayer', 'RadioUSBplayer', 'MP3', 'Kitchen', 'Coffeemachine', 'Refrigerator', 'Toilet', 'Operationalwindows', 'Curtains', 'Seatsmonitor', 'Seatsradio', 'SeatsUSBport', 'Passengerseatelectricsocket220V', 'Seatupholstery', 'Recliningseats', 'Extendableseats', 'Safetybelts', 'Coffeetables', 'Seatpocket', 'Handrest', 'Footrest', 'HatBox']
+2025-12-06 18:03:50,161 - DEBUG - json.dumps(columns): ["Reference", "Name", "Firstregistration", "Kilometers", "Emissionstandard(exantipollution)", "Type", "Class", "Version", "Location", "Vehiclecondition", "TypeofUse", "V.I.N.", "Floor", "Length", "Width", "Height", "Inspectionexpirationdate", "Documentnationality", "Doors", "Totalpassengercapacity", "Seats", "Seatsincludingdriver'sseatfromregistrationcertificateS1", "Standingplaces", "StandingplacefromregistrationcertificateS2", "Companionseats", "Foldingseats", "Wheelchairplaces", "Wheelchairramp", "Luggagecapacity", "Pass-throughLuggageCompartment", "Fuel", "Enginebrand", "Enginemodel", "Engineposition", "Displacement", "Power", "Axles", "numberofwheels(singleordouble)", "Tiresizeforaxle1", "Tiresizeforaxle2", "Sparewheel", "Alloywheels", "Passengersairconditioning", "Heater", "Preheater", "Transmission type", "Driverairconditioning", "Cruisecontrol", "Tachograph", "ABS", "ASR", "Retarder", "Breathalyzer", "CCTV", "Internalcameras", "Externalcameras", "Reversingcamera", "Firealarmsystem", "Destinationsigns", "Destinationsignsbrand", "Driverberth", "DriverElectricsocket", "Monitors", "Wi-Fi", "Microphone", "CDplayer", "DVDplayer", "RadioUSBplayer", "MP3", "Kitchen", "Coffeemachine", "Refrigerator", "Toilet", "Operationalwindows", "Curtains", "Seatsmonitor", "Seatsradio", "SeatsUSBport", "Passengerseatelectricsocket220V", "Seatupholstery", "Recliningseats", "Extendableseats", "Safetybelts", "Coffeetables", "Seatpocket", "Handrest", "Footrest", "HatBox"]
+2025-12-06 18:03:50,162 - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-12-06 18:03:50,163 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1155006e0>
+2025-12-06 18:03:50,164 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-06 18:03:50,164 - DEBUG - send_request_headers.complete
+2025-12-06 18:03:50,164 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-06 18:03:50,164 - DEBUG - send_request_body.complete
+2025-12-06 18:03:50,164 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-06 18:04:17,292 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Sat, 06 Dec 2025 17:04:17 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-06 18:04:17,294 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-06 18:04:17,294 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-06 18:04:17,295 - DEBUG - receive_response_body.complete
+2025-12-06 18:04:17,295 - DEBUG - response_closed.started
+2025-12-06 18:04:17,295 - DEBUG - response_closed.complete
+2025-12-06 18:04:17,296 - INFO - LLM analysis completed.
+2025-12-06 18:04:17,314 - INFO - Data appended to output/auction_data.csv
+2025-12-06 18:04:17,314 - INFO - Agent completed.
