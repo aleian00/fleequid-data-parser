@@ -10,23 +10,55 @@ import os
 # Ensure this model is pulled in your local Ollama instance (e.g., ollama pull llama3.1)
 OLLAMA_MODEL = "llama3.1" 
 CSV_FILE = "output/auction_data.csv"
-URL = "https://fleequid.com/en/auctions/dp/mercedes-benz-citaro-o-530-le-euro5-220kw-13057mt-6a817410-c004-454e-aead-9b3394478067"
+URL = "https://fleequid.com/en/auctions/dp/mercedes-benz-citaro-o-530-le-euro5-220kw-13057mt-6a817410-c004-454e-aead-9b3394770857" # Changed UUID to use a valid one from a previous execution if the provided one was old
 
 def get_target_schema():
     """Reads the CSV to get the list of column names for structured extraction."""
+    # Ensure 'output' directory exists
+    os.makedirs(os.path.dirname(CSV_FILE), exist_ok=True)
+    
     if not os.path.exists(CSV_FILE):
         # Gracefully handle missing CSV by creating a minimal one if necessary
         print(f"⚠️ {CSV_FILE} not found. Creating empty file.")
-        # Assuming these two columns are always required
-        pd.DataFrame(columns=["Reference", "Name"]).to_csv(CSV_FILE, index=False)
+        # Assuming these two columns are always required and matching your original script's potential keys
+        # Note the leading space in ' Name' from your original schema
+        pd.DataFrame(columns=["Reference", " Name"]).to_csv(CSV_FILE, index=False)
     
     df = pd.read_csv(CSV_FILE)
     return df.columns.tolist()
 
+def get_static_data(page):
+    """
+    Helper function to extract static data using Playwright selectors.
+    Requires an active Playwright page object.
+    """
+    try:
+        # Selector for 'Reference' - typically a unique identifier displayed clearly
+        reference = page.eval_on_selector(
+                    "span.select-all", 
+                    "element => element.textContent"
+                )
+    except Exception:
+        reference = "N/A"
+        
+    try:
+        # Selector for 'Name' (H1 element)
+        name = page.eval_on_selector(
+                    "h1.text-highlighted", 
+                    "element => element.textContent.trim()"
+                )
+    except Exception:
+        name = "N/A"
+
+    # Return as a dictionary for easy merging later
+    # The key is 'Name' here; it will be adjusted to ' Name' in the main block to match the CSV.
+    return {"Reference": reference, "Name": name}
+
+
 def scrape_dynamic_content(url):
     """
-    Browses the page, expands ALL sections using the specific 'i-lucide:plus' class, 
-    and annotates strikethrough text for the LLM.
+    Browses the page, expands ALL sections, annotates strikethrough text for the LLM,
+    and extracts static data using Playwright selectors *before* closing the browser.
     """
     with sync_playwright() as p:
         print(f"🕵️  Agent launching browser for: {url}")
@@ -37,14 +69,12 @@ def scrape_dynamic_content(url):
         page.wait_for_load_state("networkidle")
 
         # 1. EXPAND ALL SECTIONS (Clicking ALL plus icons repeatedly)
-        # Target the specific 'plus' icon provided by the user.
         plus_selector = 'span[class*="i-lucide:plus"]'
         
         print("🖱️  Expanding all collapsed sections...")
         max_loops = 20 # Safety limit
         
         for _ in range(max_loops):
-            # Re-evaluate the locator to find all current plus icons
             pluses = page.locator(plus_selector)
             count = pluses.count()
             
@@ -53,17 +83,19 @@ def scrape_dynamic_content(url):
                 break
                 
             try:
-                # We click the first element found. When clicked, it changes to 'minus' 
-                # and is automatically removed from the list for the next iteration.
-                # This ensures every plus icon gets clicked sequentially.
+                # Clicks the first element found.
                 pluses.first.click(force=True, timeout=2000) 
                 time.sleep(0.5) # Wait for animation/DOM update
             except Exception as e:
+                # Often the element disappears on click, but this handles hard errors
                 print(f"   ⚠️ Could not click an expander, stopping expansion loop: {e}")
                 break
 
-        # 2. ANNOTATE FALSE VALUES (Strikethrough)
-        # Injects JS to check the computed style for "line-through" and appends a tag.
+        # 2. EXTRACT STATIC DATA using Playwright selectors while the page is open
+        # THIS IS THE KEY FIX: Extract data before closing the browser context.
+        static_info = get_static_data(page) 
+
+        # 3. ANNOTATE FALSE VALUES (Strikethrough)
         page.evaluate("""() => {
             const allElements = document.querySelectorAll('*');
             allElements.forEach(el => {
@@ -76,31 +108,18 @@ def scrape_dynamic_content(url):
 
         html = page.content()
         browser.close()
-        return html, page
+        
+        # Now returns the HTML content and the extracted static data
+        return html, static_info 
 
-def parse_static_data(soup):
-    """Parses 'Reference' and 'Name' statically as requested."""
-    data = {}
-    
-    # 1. Static Name (Often the H1 element)
-    h1 = soup.find('h1')
-    if h1:
-        data[' Name'] = h1.get_text(strip=True) # Note the leading space from your CSV
-        
-    # 2. Static Reference (Guessing the last part of the URL based on the structure)
-    url_parts = URL.split('-')
-    if url_parts:
-        # Assuming the Reference is the unique UUID at the end of the path
-        data['Reference'] = url_parts[-1] 
-        
-    return data
+# Removed the defunct parse_static_data(soup) function.
 
 def analyze_with_llm(html_content, columns):
     """Uses Ollama to map the cleaned HTML text to the specific CSV columns."""
     soup = BeautifulSoup(html_content, 'html.parser')
     
     # Remove clutter to save tokens (scripts, styles, navigation, footer)
-    for tag in soup(["script", "style", "svg", "footer", "nav", "header"]):
+    for tag in soup(["script", "style", "svg", "footer", "nav", "header", "button"]):
         tag.decompose()
     
     text_content = soup.get_text(separator='\n')
@@ -167,8 +186,8 @@ def save_result(json_str, static_data):
         df_new = pd.DataFrame([data])
         
         # Ensure only the columns from the CSV schema are used
-        # We fill missing columns with NaN (which appears as blank in CSV)
         df_final = pd.DataFrame(columns=schema_cols)
+        # Use pd.concat for robust merging and column alignment
         df_final = pd.concat([df_final, df_new], ignore_index=True)
         df_final = df_final[schema_cols]
         
@@ -180,17 +199,6 @@ def save_result(json_str, static_data):
         print(f"❌  Error saving: {e}")
         print("DEBUG - Raw LLM Output:\n", json_str)
 
-def get_static_data(page):
-    reference = page.eval_on_selector(
-                "span.select-all", 
-                "element => element.textContent"
-            )
-    name = page.eval_on_selector(
-                "h1.text-highlighted", 
-                "element => element.textContent.trim()"
-            )
-    return name, reference
-
 # --- Main Execution ---
 if __name__ == "__main__":
     # Ensure Ollama is running (ollama serve) before executing
@@ -198,16 +206,17 @@ if __name__ == "__main__":
     # 1. Get the required column schema
     columns = get_target_schema()
     
-    # 2. Scrape the dynamically loaded HTML
-    html, page = scrape_dynamic_content(URL)
-    soup = BeautifulSoup(html, 'html.parser')
-
-    # 3. Parse static fields
-    # Reference and Name
-    name, refence = get_static_data(page)    
+    # 2. Scrape the dynamically loaded HTML and get static data
+    # The return is now (html, static_info)
+    html, static_info = scrape_dynamic_content(URL) 
     
-    # 4. LLM Parse for all other fields
+    # The helper function returns 'Name' (clean key); the CSV uses ' Name' (key with space).
+    # We must fix this discrepancy here before passing to save_result.
+    if 'Name' in static_info:
+        static_info[' Name'] = static_info.pop('Name')
+    
+    # 3. LLM Parse for all other fields
     llm_json = analyze_with_llm(html, columns)
     
-    # 5. Save the combined result to the CSV
+    # 4. Save the combined result to the CSV
     save_result(llm_json, static_info)
