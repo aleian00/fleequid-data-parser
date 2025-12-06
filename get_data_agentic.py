@@ -10,12 +10,12 @@ import logging
 # --- Configuration ---
 OLLAMA_MODEL = "llama3.1" 
 CSV_FILE = "output/auction_data.csv"
-URL = "https://fleequid.com/en/auctions/dp/mercedes-benz-citaro-o-530-le-euro5-220kw-13057mt-6a817410-c004-454e-aead-9b3394770857"
+URL = "https://fleequid.com/en/auctions/dp/solaris-urbino-18-euro5-231kw-18m-0af2e7e7-3703-4485-8f75-4ea1a0016f5a"
 
 # --- Logging Setup ---
 os.makedirs("log", exist_ok=True)
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler("log/agent.log"),
@@ -38,31 +38,34 @@ def get_target_schema():
 
 def get_static_data(page):
     """Helper function to extract static data using Playwright selectors."""
-    try:
-        reference = page.eval_on_selector(
-                    "span.select-all", 
-                    "element => element.textContent"
-                )
-        
-        name = page.eval_on_selector(
-                    "h1.text-highlighted", 
-                    "element => element.textContent.trim()"
-                )
-        logger.info(f"Static data extracted: Reference={reference}, Name={name}")
-        return {"Reference": reference, "Name": name}
-    except Exception as e:
-        logger.error(f"Error extracting static data: {e}")
-        return {"Reference": None, "Name": None}
-
+    
+    reference = get_reference(page)
+    
+    name = page.eval_on_selector(
+                "h1.text-highlighted", 
+                "element => element.textContent.trim()"
+            )
+    logger.info(f"Static data extracted: Reference={reference}, Name={name}")
+    return {"Reference": reference, "Name": name}
+    
 def scrape_dynamic_content(url):
     """Browses the page, expands ALL sections, and extracts data."""
     try:
         with sync_playwright() as p:
             logger.info(f"Launching browser for: {url}")
             browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
+                    # 2. specific context with a real User Agent
+            context = browser.new_context(
+                user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            )
+            page = context.new_page()
             page.goto(url)
             page.wait_for_load_state("networkidle")
+            logger.debug(f"Page Title: {page.title()}")
+            logger.debug("page content length: " + str(len(page.content())))
+            logger.info("Staart getting static info...")
+            static_info = get_static_data(page)
+            logger.info("Static info retrieved.")            
 
             plus_selector = 'span[class*="i-lucide:plus"]'
             logger.info("Expanding all collapsed sections...")
@@ -83,8 +86,6 @@ def scrape_dynamic_content(url):
                     logger.warning(f"Could not click expander: {e}")
                     break
 
-            static_info = get_static_data(page) 
-
             page.evaluate("""() => {
                 const allElements = document.querySelectorAll('*');
                 allElements.forEach(el => {
@@ -102,6 +103,14 @@ def scrape_dynamic_content(url):
     except Exception as e:
         logger.error(f"Error scraping dynamic content: {e}")
         raise
+
+def get_reference(page):
+    reference = page.eval_on_selector(
+                "span.select-all", 
+                "element => element.textContent"
+            )
+    print(f"Reference: {reference}")
+    return reference
 
 def analyze_with_llm(html_content, columns):
     """Uses Ollama to map the cleaned HTML text to the specific CSV columns."""
