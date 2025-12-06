@@ -53,7 +53,7 @@ def scrape_dynamic_content(url):
     try:
         with sync_playwright() as p:
             logger.info(f"Launching browser for: {url}")
-            browser = p.chromium.launch(headless=True)
+            browser = p.chromium.launch(headless=False)
                     # 2. specific context with a real User Agent
             context = browser.new_context(
                 user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -71,6 +71,8 @@ def scrape_dynamic_content(url):
             logger.info("Expanding all collapsed sections...")
             max_loops = 20
             
+            accept_cookies(page)
+
             for _ in range(max_loops):
                 pluses = page.locator(plus_selector)
                 count = pluses.count()
@@ -104,6 +106,20 @@ def scrape_dynamic_content(url):
         logger.error(f"Error scraping dynamic content: {e}")
         raise
 
+def accept_cookies(page):
+                """Accepts cookies if the cookie consent dialog is present."""
+                try:
+                    cookie_button = page.locator('button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll')
+                    if cookie_button.is_visible(timeout=2000):
+                        logger.info("Cookie consent dialog found. Accepting cookies...")
+                        cookie_button.click()
+                        time.sleep(1)
+                        logger.info("Cookies accepted.")
+                    else:
+                        logger.info("No cookie consent dialog found.")
+                except Exception as e:
+                    logger.debug(f"Cookie acceptance check: {e}")
+
 def get_reference(page):
     reference = page.eval_on_selector(
                 "span.select-all", 
@@ -126,7 +142,9 @@ def analyze_with_llm(html_content, columns):
         clean_text = clean_text[:15000]
         
         logger.info("Analyzing text with Ollama...")
-        
+        logger.debug(f"Cleaned Text (truncated): {clean_text}")
+        logger.debug(f"Target Columns: {columns}")
+        logger.debug(f"json.dumps(columns): {json.dumps(columns)}")
         prompt = f"""
         You are a data extraction agent. 
         
@@ -139,9 +157,10 @@ def analyze_with_llm(html_content, columns):
            {json.dumps(columns)}
         
         3. FALSE VALUES: 
-           - If a line has "[VALUE: FALSE]", map it to "False" or "No".
-           - If a checkbox feature is listed without the tag, map it to "True" or "Yes".
-           
+           - If a line has "[VALUE: FALSE]", map it to "False".
+           - If a checkbox feature is listed without the tag, map it to "True".
+           - If a line has the value "Absent"  or similar, map it to "False".
+        4. Do not process the found values; keep them as-is (e.g., do not convert "1,021,288 km" to "1021288").
         TEXT DATA:
         ---
         {clean_text}
@@ -193,7 +212,9 @@ if __name__ == "__main__":
     
     columns = get_target_schema()
     html, static_info = scrape_dynamic_content(URL) 
-    llm_json = analyze_with_llm(html, columns)
+  #  llm_json = analyze_with_llm(html.split(static_info["Vehicle specifications"])[1], columns)
+    llm_json = analyze_with_llm(html.split("88/89")[1], columns)
+  #  llm_json = analyze_with_llm(html, columns)
     save_result(llm_json, static_info)
     
     logger.info("Agent completed.")
