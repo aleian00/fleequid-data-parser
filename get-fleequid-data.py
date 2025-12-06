@@ -95,7 +95,7 @@ def html_get_engine_data(page):
     #write to file for inspection
     with open("engine_section.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print (f"Engine Section HTML: {engine_section}")
+   # print (f"Engine Section HTML: {engine_section}")
 
 
 def get_engine_data(page):
