@@ -6,6 +6,7 @@ from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 import os
 import logging
+import argparse
 
 # --- Configuration ---
 OLLAMA_MODEL = "llama3.1" 
@@ -160,6 +161,7 @@ def analyze_with_llm(html_content, columns):
            - If a checkbox feature is listed without the tag, map it to "True".
            - If a line has the value "Absent"  or similar, map it to "False".
            - Do never increment the values as False.1, False.2, etc. It must always be just "False" and "True".
+           - Do never use "No" and "Yes" for boolean values.
         4. Do not process the found values; keep them as-is (e.g., do not convert "1,021,288 km" to "1021288").
         TEXT DATA:
         ---
@@ -208,6 +210,24 @@ def save_result(json_str, static_data):
 
 # --- Main Execution ---
 if __name__ == "__main__":
+# 1. Create the Parser
+    parser = argparse.ArgumentParser(description="A simple script that greets the user and performs a calculation.")
+
+    # 2. Add Arguments
+
+    # Required Positional Argument (e.g., the user's name)
+    parser.add_argument("--url ", type=str, help="fleequid auction URL.", default=URL)
+
+    # Optional Boolean Flag (e.g., for verbose output)
+    # action="store_true" means if the flag is present, its value is True, otherwise False.
+    parser.add_argument("-v", "--verbose", action="store_true",
+                        help="Enable verbose output.")
+
+    # 3. Parse the Arguments
+    args = parser.parse_args()
+
+
+
     logger.info("Agent starting...")
     
     columns = get_target_schema()

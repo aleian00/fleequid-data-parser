@@ -2,6 +2,7 @@ import pandas as pd
 from playwright.sync_api import sync_playwright
 import time
 from collections import defaultdict
+import subprocess
 
 # Configuration
 START_URL = "https://fleequid.com/en/auctions/bus?state%5B%5D=Running"
@@ -97,7 +98,6 @@ def html_get_engine_data(page):
         f.write(html)
    # print (f"Engine Section HTML: {engine_section}")
 
-
 def get_engine_data(page):
     engine_data = page.eval_on_selector_(
         "div[role='region'][aria-labelledby*='reka-accordion-trigger']",
@@ -178,9 +178,9 @@ def get_links(page_content):
 
 def main():
     print("Starting extraction...")
-   # auction_links = get_auction_links(START_URL)
-    extract_auction_data("https://fleequid.com/en/auctions/dp/mercedes-benz-citaro-o-530-le-euro5-220kw-13057mt-28062b19-c136-4de9-8393-015ebd5ef7c8")
-   
+    auction_links = get_auction_links(START_URL)
+    for link in auction_links:
+        subprocess.run(["python3", "get_data_agentic.py", "--url", link])
 
 if __name__ == "__main__":
     main()
